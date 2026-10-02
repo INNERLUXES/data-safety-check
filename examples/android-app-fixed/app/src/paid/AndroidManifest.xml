@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Only the paid flavour can pick a customer from the address book. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+</manifest>

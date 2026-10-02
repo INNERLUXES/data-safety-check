@@ -1,0 +1,51 @@
+{
+  "dataTypes": [
+    {
+      "type": "Precise location",
+      "collected": true,
+      "shared": false,
+      "purposes": ["App functionality"]
+    },
+    {
+      "type": "Email address",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Account management"]
+    },
+    {
+      "type": "Contacts",
+      "collected": true,
+      "shared": false,
+      "purposes": ["App functionality"]
+    },
+    {
+      "type": "Photos",
+      "collected": false,
+      "shared": false
+    },
+    {
+      "type": "App interactions",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Analytics"]
+    },
+    {
+      "type": "Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Analytics"]
+    },
+    {
+      "type": "Approximate location",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Analytics"]
+    },
+    {
+      "type": "Purchase history",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Analytics"]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+[versions]
+firebase = "33.0.0"
+
+[libraries]
+firebase-analytics = { module = "com.google.firebase:firebase-analytics", version.ref = "firebase" }

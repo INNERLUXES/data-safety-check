@@ -1,0 +1,169 @@
+{
+  "tool": "data-safety-check",
+  "version": "1.0.0",
+  "folder": "examples/android-app",
+  "answers": {
+    "file": "examples/android-app/data-safety.json",
+    "readable": true,
+    "dataTypes": 5,
+    "problem": null
+  },
+  "scanned": {
+    "manifests": 3,
+    "builds": 1,
+    "catalogs": 1
+  },
+  "manifests": [
+    {
+      "file": "examples/android-app/app/src/main/AndroidManifest.xml",
+      "readable": true,
+      "kind": "main",
+      "permissions": 3,
+      "removals": 1
+    },
+    {
+      "file": "examples/android-app/app/src/paid/AndroidManifest.xml",
+      "readable": true,
+      "kind": "variant",
+      "permissions": 1,
+      "removals": 0
+    },
+    {
+      "file": "examples/android-app/feedback-lib/src/main/AndroidManifest.xml",
+      "readable": true,
+      "kind": "main",
+      "permissions": 1,
+      "removals": 0
+    }
+  ],
+  "permissions": [
+    {
+      "name": "android.permission.ACCESS_FINE_LOCATION",
+      "file": "examples/android-app/app/src/main/AndroidManifest.xml",
+      "line": 6,
+      "files": 1,
+      "level": "direct",
+      "dataTypes": [
+        "Precise location"
+      ]
+    },
+    {
+      "name": "android.permission.CAMERA",
+      "file": "examples/android-app/app/src/main/AndroidManifest.xml",
+      "line": 7,
+      "files": 1,
+      "level": "review",
+      "dataTypes": [
+        "Photos",
+        "Videos"
+      ]
+    },
+    {
+      "name": "android.permission.INTERNET",
+      "file": "examples/android-app/app/src/main/AndroidManifest.xml",
+      "line": 5,
+      "files": 1,
+      "level": null,
+      "dataTypes": []
+    },
+    {
+      "name": "android.permission.READ_CONTACTS",
+      "file": "examples/android-app/app/src/paid/AndroidManifest.xml",
+      "line": 5,
+      "files": 1,
+      "level": "direct",
+      "dataTypes": [
+        "Contacts"
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "name": "android.permission.RECORD_AUDIO",
+      "file": "examples/android-app/app/src/main/AndroidManifest.xml",
+      "line": 10
+    }
+  ],
+  "sdks": [
+    {
+      "id": "firebase-analytics",
+      "name": "Google Analytics for Firebase",
+      "kind": "analytics",
+      "coordinate": "com.google.firebase:firebase-analytics",
+      "file": "examples/android-app/app/build.gradle.kts",
+      "line": 26,
+      "uses": 1
+    }
+  ],
+  "counts": {
+    "error": 1,
+    "warning": 4,
+    "review": 1
+  },
+  "findings": [
+    {
+      "id": "no-purpose",
+      "severity": "error",
+      "file": "examples/android-app/data-safety.json",
+      "line": 9,
+      "subject": "Email address",
+      "message": "Email address is declared as collected and has no purpose",
+      "fix": "Give the data type at least one purpose: Google asks for the purposes of every data type that is collected or shared"
+    },
+    {
+      "id": "sdk-undeclared",
+      "severity": "warning",
+      "file": "examples/android-app/app/build.gradle.kts",
+      "line": 26,
+      "subject": "Google Analytics for Firebase - Approximate location",
+      "message": "Google Analytics for Firebase (com.google.firebase:firebase-analytics) is a dependency and collects by default \"Masked IP address\", which Google's page puts under Approximate location (Location); examples/android-app/data-safety.json does not list it",
+      "fix": "Add Approximate location to examples/android-app/data-safety.json with its purposes, or remove the SDK; the vendor's page is https://support.google.com/analytics/answer/11582702"
+    },
+    {
+      "id": "sdk-undeclared",
+      "severity": "warning",
+      "file": "examples/android-app/app/build.gradle.kts",
+      "line": 26,
+      "subject": "Google Analytics for Firebase - Purchase history",
+      "message": "Google Analytics for Firebase (com.google.firebase:firebase-analytics) is a dependency and collects by default \"In-app purchases and subscriptions\", which Google's page puts under Purchase history (Financial info); examples/android-app/data-safety.json does not list it",
+      "fix": "Add Purchase history to examples/android-app/data-safety.json with its purposes, or remove the SDK; the vendor's page is https://support.google.com/analytics/answer/11582702"
+    },
+    {
+      "id": "declared-not-collected",
+      "severity": "warning",
+      "file": "examples/android-app/app/src/paid/AndroidManifest.xml",
+      "line": 5,
+      "subject": "android.permission.READ_CONTACTS",
+      "message": "android.permission.READ_CONTACTS is in the manifest, and examples/android-app/data-safety.json says Contacts is neither collected nor shared (line 28)",
+      "fix": "Check that no data of this type leaves the device through the app, a library or a webview; if some does, set collected or shared to true and give the purposes"
+    },
+    {
+      "id": "unknown-purpose",
+      "severity": "warning",
+      "file": "examples/android-app/data-safety.json",
+      "line": 19,
+      "subject": "Analytic",
+      "message": "\"Analytic\" is not a purpose that Google's Data safety page lists",
+      "fix": "Write the purpose exactly as Google writes it, for example \"App functionality\"; docs/data-safety-answers.md lists them all"
+    },
+    {
+      "id": "permission-review",
+      "severity": "review",
+      "file": "examples/android-app/app/src/main/AndroidManifest.xml",
+      "line": 7,
+      "subject": "android.permission.CAMERA",
+      "message": "android.permission.CAMERA can mean Photos or Videos, depending on what the app does with the data, and examples/android-app/data-safety.json lists none of them",
+      "fix": "Decide what the app does with it: if it collects or shares Photos or Videos, add it to examples/android-app/data-safety.json with its purposes; if the data stays on the device, nothing is needed"
+    }
+  ],
+  "notes": [
+    "left out 1 kind of folder (build); use --include-generated to read them",
+    "1 permission with no entry in the mapping table (see docs/permissions-and-sdks.md)",
+    "examples/android-app/feedback-lib/src/main/AndroidManifest.xml:4: android.permission.RECORD_AUDIO is removed with tools:node=\"remove\" and is not counted"
+  ],
+  "gate": {
+    "failOn": "error",
+    "pass": false,
+    "reason": "1 error"
+  }
+}

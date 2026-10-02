@@ -1,0 +1,35 @@
+## data-safety-check: 1 error, 4 warning, 1 review
+
+Folder: `examples/android-app`. Answers: examples/android-app/data-safety.json, 5 data types declared.
+
+| Manifest | Permissions |
+| --- | --- |
+| examples/android-app/app/src/main/AndroidManifest.xml | 3 permissions, 1 removal |
+| examples/android-app/app/src/paid/AndroidManifest.xml | 1 permission |
+| examples/android-app/feedback-lib/src/main/AndroidManifest.xml | 1 permission |
+
+| Permission | Data type | Level |
+| --- | --- | --- |
+| ACCESS_FINE_LOCATION | Precise location | direct |
+| CAMERA | Photos or Videos | review |
+| INTERNET | - | - |
+| READ_CONTACTS | Contacts | direct |
+
+| SDK | Coordinate | Where |
+| --- | --- | --- |
+| Google Analytics for Firebase | com.google.firebase:firebase-analytics | examples/android-app/app/build.gradle.kts:26 |
+
+| Severity | Check | Where | Message | Fix |
+| --- | --- | --- | --- | --- |
+| error | no-purpose | examples/android-app/data-safety.json:9 | Email address is declared as collected and has no purpose | Give the data type at least one purpose: Google asks for the purposes of every data type that is collected or shared |
+| warning | sdk-undeclared | examples/android-app/app/build.gradle.kts:26 | Google Analytics for Firebase (com.google.firebase:firebase-analytics) is a dependency and collects by default "Masked IP address", which Google's page puts under Approximate location (Location); examples/android-app/data-safety.json does not list it | Add Approximate location to examples/android-app/data-safety.json with its purposes, or remove the SDK; the vendor's page is https://support.google.com/analytics/answer/11582702 |
+| warning | sdk-undeclared | examples/android-app/app/build.gradle.kts:26 | Google Analytics for Firebase (com.google.firebase:firebase-analytics) is a dependency and collects by default "In-app purchases and subscriptions", which Google's page puts under Purchase history (Financial info); examples/android-app/data-safety.json does not list it | Add Purchase history to examples/android-app/data-safety.json with its purposes, or remove the SDK; the vendor's page is https://support.google.com/analytics/answer/11582702 |
+| warning | declared-not-collected | examples/android-app/app/src/paid/AndroidManifest.xml:5 | android.permission.READ_CONTACTS is in the manifest, and examples/android-app/data-safety.json says Contacts is neither collected nor shared (line 28) | Check that no data of this type leaves the device through the app, a library or a webview; if some does, set collected or shared to true and give the purposes |
+| warning | unknown-purpose | examples/android-app/data-safety.json:19 | "Analytic" is not a purpose that Google's Data safety page lists | Write the purpose exactly as Google writes it, for example "App functionality"; docs/data-safety-answers.md lists them all |
+| review | permission-review | examples/android-app/app/src/main/AndroidManifest.xml:7 | android.permission.CAMERA can mean Photos or Videos, depending on what the app does with the data, and examples/android-app/data-safety.json lists none of them | Decide what the app does with it: if it collects or shares Photos or Videos, add it to examples/android-app/data-safety.json with its purposes; if the data stays on the device, nothing is needed |
+
+- left out 1 kind of folder (build); use --include-generated to read them
+- 1 permission with no entry in the mapping table (see docs/permissions-and-sdks.md)
+- examples/android-app/feedback-lib/src/main/AndroidManifest.xml:4: android.permission.RECORD_AUDIO is removed with tools:node="remove" and is not counted
+
+**Gate failed:** 1 error.

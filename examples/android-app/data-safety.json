@@ -1,0 +1,33 @@
+{
+  "dataTypes": [
+    {
+      "type": "Precise location",
+      "collected": true,
+      "shared": false,
+      "purposes": ["App functionality"]
+    },
+    {
+      "type": "Email address",
+      "collected": true,
+      "shared": false,
+      "purposes": []
+    },
+    {
+      "type": "App interactions",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Analytic"]
+    },
+    {
+      "type": "Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "purposes": ["Analytics"]
+    },
+    {
+      "type": "Contacts",
+      "collected": false,
+      "shared": false
+    }
+  ]
+}
