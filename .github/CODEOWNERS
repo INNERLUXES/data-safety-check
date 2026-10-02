@@ -1,0 +1,15 @@
+# Every change is reviewed by a maintainer.
+* @innerluxesdev
+
+# The tables come from Google's and the SDK vendors' pages, and the readers and the checks decide every line of the report; changes need extra care.
+/src/data.js @innerluxesdev
+/research/ @innerluxesdev
+/src/xml.js @innerluxesdev
+/src/json.js @innerluxesdev
+/src/answers.js @innerluxesdev
+/src/manifest.js @innerluxesdev
+/src/merge.js @innerluxesdev
+/src/gradle.js @innerluxesdev
+/src/catalog.js @innerluxesdev
+/src/scan.js @innerluxesdev
+/src/check.js @innerluxesdev
