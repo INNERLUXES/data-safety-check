@@ -1,0 +1,53 @@
+Source: https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure
+Coordinates: https://developers.google.com/android/guides/setup lists "Google Maps SDK for Android" with the dependency com.google.android.gms:play-services-maps.
+Text taken from the page; markup is flattened and table cells are shown one per line. Update stamps and the paragraph about when the Data safety section was announced are left out.
+
+# Maps SDK for Android
+
+## Data collected automatically
+
+Data
+By default, the Maps SDK...
+
+Request metadata
+
+For example:
+
+- Device metadata: OS version, name, model, brand, form factor.
+
+- Maps SDK for Android build and version information.
+
+- Number of results returned.
+
+- Internal Usage Attribution Identifier
+
+Collects request metadata to maintain and improve Google services.
+The Internal Usage Attribution identifier helps Google understand which libraries and samples
+are helpful to developers, such as usage of a UI framework support library. This is not used
+to identify the user or for advertising attribution.
+
+Stack traces
+
+Crash metrics
+
+Collects stack traces during crashes within the SDK code and crash
+metrics such as abnormal terminations to improve the stability of our SDKs
+and improve Google services.
+
+IP address
+Collects the IP address to understand SDK usage and improve Google
+services.
+
+Maps SDK identifier
+Generates and collects a Maps SDK-specific pseudonymous identifier to
+measure daily active SDK users and improve Google services.
+
+## Data collected depending on your usage
+
+Data
+Depending on your app's configuration and invocation, the Maps SDK for Android...
+
+Map interaction events
+Collects interaction data, such as panning and zooming the map when the
+Map Camera APIs are
+used, to improve Google services

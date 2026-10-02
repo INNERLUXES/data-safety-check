@@ -1,0 +1,293 @@
+Source: https://support.google.com/googleplay/android-developer/answer/10787469
+Text taken from the saved page; markup is flattened. The sections about the Families badge, the schedule of the form and the change log are left out. Each data type is a "### data type" block and each purpose a "### purpose" block; the tool compares its tables with them.
+
+# Provide information for Google Play's Data safety section
+
+## What developers need to declare across data types
+
+Click on the sections below to expand or collapse them.
+
+Data collection
+
+"Collect" means transmitting data from your app off a user’s device. Please note the following guidelines:
+
+- Libraries and SDKs: This includes user data transmitted off device from your app by libraries and/or SDKs used in your app, irrespective of whether data is transmitted to you or a third-party server.
+
+- Webview: It also includes user data collected from a webview which has been opened from your app, if your app is in control of the code/behavior delivered through that webview.
+
+- You do not need to declare data collection from a webview in which users are navigating the open web.
+
+- Ephemeral processing: User data transmitted off device that is processed ephemerally needs to be included in your form response, but if it meets the standard below, it will not be disclosed in your app’s Data safety section on Google Play.
+
+- Processing data "ephemerally" means accessing and using it while the data is only stored in memory and retained for no longer than necessary to service the specific request in real-time.
+
+- For example, a weather app that transmits user location off the device to fetch the current weather at the user's location but only uses location data in memory and does not store that data once the request has been fulfilled, can treat its transient use of location as ephemeral. However, using data to build advertising profiles or other user profiles cannot be treated as ephemeral and must be declared as collection or sharing for the relevant purposes.
+
+- Pseudonymous data: User data collected pseudonymously must be disclosed. For example, data that can reasonably be re-associated with a user must be disclosed.
+
+## Not in scope for data collection
+
+The following use cases do not need to be disclosed as collected:
+
+- On-device access/processing: User data accessed by your app that is only processed locally on the user’s device and not sent off device does not need to be disclosed.
+
+- End-to-end encryption: User data that is sent off device, but that is unreadable by you or anyone other than the sender and recipient as a result of end-to-end encryption does not need to be disclosed.
+
+- The encrypted data must not be readable by any intermediary entity, including the developer, and only sender and recipient may have necessary keys.
+
+Data sharing
+
+"Sharing" refers to transferring user data collected from your app to a third party. This includes user data transferred:
+
+- Off-device, such as server to server transfers. For example, if you transfer user data collected from your app from your server to a third-party server.
+
+- On-device transfer to another app. Transferring user data from your app to another app directly on the device. In this case, you must disclose data sharing in your Data safety section declarations even if your app does not transmit the data off the user’s device.
+
+- From your app libraries and SDKs. Transferring data collected from your app off a user’s device directly to a third party via libraries and/or SDKs included in your app.
+
+- From webview which has been opened through your app. Transferring user data to a third party via a webview which has been opened from your app, if your app is in control of code/behavior delivered through that webview.
+
+- You do not need to declare data sharing from a webview in which users are navigating the open web.
+
+The following types of data transfers do not need to be disclosed as "sharing":
+
+- Service providers. Transferring user data to a "service provider" that processes it on behalf of the developer.
+
+- "Service provider" means an entity that processes user data on behalf of the developer and based on the developer’s instructions.
+
+- Legal purposes. Transferring user data for specific legal purposes, such as in response to a legal obligation or government requests.
+
+- User-initiated action or prominent disclosure and user consent. Transferring user data to a third party based on a specific user-initiated action, where the user reasonably expects the data to be shared, or based on a prominent in-app disclosure and consent that meets the requirements described in our User Data policy.
+
+- Anonymous data. Transferring user data that has been fully anonymized so that it can no longer be associated with an individual user.
+
+First and third parties.
+
+- "First party" means the primary organization responsible for processing data collected by the app, which is typically the organization publishing the app on Google Play and appearing on the store listing.
+
+- The first party has an obligation to make reasonably clear to users which organization is primarily responsible for processing data collected by the app.
+
+- "Third party" means any organization other than the first party or its service providers.
+
+Data handling
+
+You can also disclose whether each data type collected by your app is "optional" or "required." "Optional" includes the ability to opt into or opt out of data collection. For example, you can declare a data type as "optional" where a user has control over its collection and can use the app without providing it; or where a user chooses whether to manually provide that data type. If your app’s primary functionality requires the data type, you should declare that data as "required."
+
+You can declare that your app collects certain data optionally only if all users – regardless of device or region – can either optionally provide information, opt-out, or opt-in to have the data collected.
+
+Examples of optional data collection include:
+
+- A social media app that asks for a user's birthday for marketing communication, but that info is not required – the user can still sign up without providing that information.
+
+- User data that is only collected when a user signs in where users have the ability to engage with the app without being signed-in.
+
+Other app and data disclosures
+
+The Data safety section is also an opportunity for you to showcase your app’s privacy and security practices to your users. For example, you can highlight the following information:
+
+- Encryption in transit: Is data collected or shared by your app using encryption in transit to protect the flow of user data from the end user’s device to the server.
+
+- Some apps are designed to let users transfer data to another site or service. For example, a messaging app may give users an option to send an SMS message through their mobile services provider, which maintains different encryption practices. These apps may declare in their Data safety section that data is transferred over a secure connection as long as they use best industry standards to safely encrypt data while it travels between a user’s device and the app’s servers.
+
+- Deletion request mechanism: Does your app provide a way for users to request deletion of their data?
+
+
+## Data types
+
+### category Location
+
+### data type Approximate location
+User or device physical location to an area greater than or equal to 3 square kilometers, such as the city a user is in, or location provided by Android’s ACCESS_COARSE_LOCATION permission.
+Note: Approximate location that is inferred, such as via IP address or Access Point Name, must be disclosed here.
+
+### data type Precise location
+User or device physical location within an area less than 3 square kilometers, such as location provided by Android’s ACCESS_FINE_LOCATION permission.
+Note: Precise location that is inferred, such as via IP address or Access Point Name, must be disclosed here.
+
+### category Personal info
+
+### data type Name
+How a user refers to themselves, such as their first or last name, or nickname.
+
+### data type Email address
+A user’s email address.
+
+### data type User IDs
+Identifiers that relate to an identifiable person. For example, an account ID, account number, or account name.
+
+### data type Address
+A user’s address, such as a mailing or home address.
+
+### data type Phone number
+A user’s phone number.
+
+### data type Race and ethnicity
+Information about a user’s race or ethnicity.
+
+### data type Political or religious beliefs
+Information about a user’s political or religious beliefs.
+
+### data type Sexual orientation
+Information about a user’s sexual orientation.
+
+### data type Other info
+Any other personal information such as date of birth, gender identity, veteran status, etc.
+
+### category Financial info
+
+### data type User payment info
+Information about a user’s financial accounts such as credit card number.
+
+### data type Purchase history
+Information about purchases or transactions a user has made.
+
+### data type Credit score
+Information about a user’s credit score.
+
+### data type Other financial info
+Any other financial information such as user salary or debts.
+
+### category Health and fitness
+
+### data type Health info
+Information about a user's health, such as medical records or symptoms.
+
+### data type Fitness info
+Information about a user's fitness, such as exercise or other physical activity.
+
+### category Messages
+
+### data type Emails
+A user’s emails including the email subject line, sender, recipients, and the content of the email.
+
+### data type SMS or MMS
+A user’s text messages including the sender, recipients, and the content of the message.
+
+### data type Other in-app messages
+Any other types of messages. For example, instant messages or chat content.
+
+### category Photos and videos
+
+### data type Photos
+A user’s photos.
+
+### data type Videos
+A user’s videos.
+
+### category Audio files
+
+### data type Voice or sound recordings
+A user’s voice such as a voicemail or a sound recording.
+
+### data type Music files
+A user’s music files.
+
+### data type Other audio files
+Any other user-created or user-provided audio files.
+
+### category Files and docs
+
+### data type Files and docs
+A user’s files or documents, or information about their files or documents such as file names.
+
+### category Calendar
+
+### data type Calendar events
+Information from a user’s calendar such as events, event notes, and attendees.
+
+### category Contacts
+
+### data type Contacts
+Information about the user’s contacts such as contact names, message history, and social graph information like usernames, contact recency, contact frequency, interaction duration and call history.
+
+### category App activity
+
+### data type App interactions
+Information about how a user interacts with the app. For example, the number of times they visit a page, screenshots taken, or sections they tap on.
+
+### data type In-app search history
+Information about what a user has searched for in your app.
+
+### data type Installed apps
+Information about the apps installed on a user's device.
+
+### data type Other user-generated content
+Any other user-generated content not listed here, or in any other section. For example, user bios, notes, or open-ended responses.
+
+### data type Other actions
+Any other user activity or actions in-app not listed here such as gameplay, likes, and dialog options.
+
+### category Web browsing
+
+### data type Web browsing history
+Information about the websites a user has visited.
+
+### category App info and performance
+
+### data type Crash logs
+Crash log data from your app. For example, the number of times your app has crashed, stack traces, or other information directly related to a crash.
+
+### data type Diagnostics
+Information about the performance of your app. For example battery life, loading time, latency, framerate, or any technical diagnostics.
+
+### data type Other app performance data
+Any other app performance data not listed here.
+
+### category Device or other IDs
+
+### data type Device or other IDs
+Identifiers that relate to an individual device, browser or app. For example, an IMEI number, MAC address, Widevine Device ID, Firebase installation ID, or advertising identifier.
+
+## Purposes
+
+### purpose App functionality
+Description: Used for features that are available in the app
+Example: For example to enable app features, or authenticate users.
+
+### purpose Analytics
+Description: Used to collect data about how users use the app or how it performs
+Example: For example, to see how many users are using a particular feature, to monitor app health, to diagnose and fix bugs or crashes, or to make future performance improvements.
+
+### purpose Developer communications
+Description: Used to send news or notifications about the app or the developer.
+Example: For example, sending a push notification to inform users about an important security update, or informing users about new features of the app.
+
+### purpose Advertising or marketing
+Description: Used to display or target ads or marketing communications, or measuring ad performance
+Example: For example, displaying ads in your app, sending push notifications to promote other products or services, or sharing data with advertising partners.
+
+### purpose Fraud prevention, security, and compliance
+Description: Used for fraud prevention, security, or compliance with laws.
+Example: For example, monitoring failed login attempts to identify possible fraudulent activity.
+
+### purpose Personalization
+Description: Used to customize your app, such as showing recommended content or suggestions.
+Example: For example, suggesting playlists based on the user's listening habits or delivering local news based on the user’s location.
+
+### purpose Account management
+Description: Used for the setup or management of a user’s account with the developer.
+Example: For example, to enable users to create accounts or add information to an account the developer provides for use across its services, log in to your app, or verify their credentials.
+
+## Questions and answers
+
+### question
+Do I need to declare data if my app includes a permission but does not actually collect or share the data?
+You do not need to declare collection or sharing unless data is actually collected and/or shared. Your app must comply with all Google Play Developer Program policies, including our policy for Permissions and APIs that Access Sensitive Information.
+
+### question
+What is the difference between the permissions list and the Data safety section of an app?
+Google gathers information for the permissions list based on the install-time permissions that an app declares in its manifest.
+The Data safety section shares what data the app collects and shares with third parties.
+
+### question
+How should I treat the collection and use of IP addresses?
+As with other data types, you should disclose your collection, use and sharing of IP addresses based on their particular usage and practices. For example, where developers use IP addresses as a means to determine location, then that data type should be declared.
+
+### question
+How should I disclose the collection and sharing of other kinds of identifiers?
+As with other data types, you should disclose your collection, use and sharing of different kinds of identifiers based on your particular usage and practices. For example, the collection of an account name associated with an identifiable person should be declared as a “Personal identifier,” and the collection of a user’s Android Advertising ID should be declared as “Device or other identifiers.” As another example, an identifier related to a specific in-app event, but that does not reasonably relate to an individual device, browser or app, would not need to be disclosed as “Device or other identifiers.”
+As noted above, the collection of data pseudonymously should be disclosed on your survey under the relevant data type. For example, if you collect diagnostic information with a device identifier, you should still disclose the collection of “Diagnostics” in your Data safety form.
+
+### question
+If one data type is collected as part of another, should I declare both? For example, if I collected Contacts which includes the user's email, do I declare both the "Contacts" and "Email address" data types?
+If you are purposefully collecting a data type during the collection of another data type, you should disclose both. For example, if you collect user photos and use them to determine users’ characteristics (such as ethnicity or race) you should also disclose the collection of ethnicity and race.

@@ -1,0 +1,248 @@
+Source: https://firebase.google.com/docs/android/play-data-disclosure
+Text taken from the page; markup is flattened and table cells are shown one per line. Update stamps and the paragraph about when the Data safety section was announced are left out.
+
+# Firebase Android SDKs: Google Analytics, Crashlytics and Authentication
+
+## Google Analytics
+
+com.google.firebase:firebase-analytics
+
+com.google.firebase:firebase-analytics-ktx
+
+Find Google Analytics data collection information in the
+Google Analytics documentation.
+
+## Crashlytics
+
+com.google.firebase:firebase-crashlytics
+
+com.google.firebase:firebase-crashlytics-ktx
+
+com.google.firebase:firebase-crashlytics-ndk
+
+## Data collected automatically
+
+The Firebase Crashlytics SDK collects the following data automatically.
+
+Data
+By default, the Firebase Crashlytics SDK...
+
+Stack traces
+Collects stack traces when an application crashes.
+
+Relevant application state
+Collects relevant application state when an application crashes.
+
+Relevant device
+metadata
+
+Collects point-in-time metadata about the device when an
+application crashes.
+
+Crashlytics installation UUID
+Generates and stores the Crashlytics installation UUID to
+measure the number of users impacted by a crash.
+
+## Other considerations
+
+Crashlytics has a dependency on the Firebase installations SDK. Since
+that SDK is transitively included in your app, make sure to account for the
+end-user data collected automatically by that SDK (see the
+installations section on this page). Note that Crashlytics
+doesn't use any of the data collected by the Firebase installations SDK,
+except to rotate the Crashlytics installation UUID based on changes to the
+app instance's Firebase installation ID.
+
+Crashlytics also has a dependency on the Firebase sessions SDK to provide
+quality metrics in the Firebase console. Since that SDK is transitively
+included in your app, make sure to account for the end-user data collected
+automatically by that SDK (see the Firebase sessions SDK section on
+this page).
+
+## Data collected depending on your usage
+
+Depending on how you configure or invoke the Firebase Crashlytics SDK
+and the product's features, your app may collect end-user data that needs to be
+included in your data disclosure. The following table lists examples of end-user
+data that can be collected depending on your usage, but make sure to account for
+any data collected by your specific usage.
+
+Data
+Depending on your app's configuration and invocation, the
+Firebase Crashlytics SDK...
+
+Developer-defined data
+Collects any custom keys, logs, and free-text user IDs that a
+developer attaches to crash reports.
+
+Developer-defined data
+Collects any developer-defined non-fatal events with custom stack
+traces.
+
+## Other considerations
+
+Some optional features of Crashlytics depend on the Firebase SDK for Google
+Analytics. If you include that SDK in your app, make sure to account for the
+end-user data collected automatically by that SDK (see the
+Google Analytics documentation).
+The following table lists the data that Crashlytics uses from that data
+collection:
+
+Data
+If your app includes the Firebase SDK for Google Analytics, then
+Crashlytics...
+
+"breadcrumb" logs
+Uses the "breadcrumb" logs collected by the Firebase SDK for
+Google Analytics. These logs identify user actions immediately before a
+crash along with crash counts.
+
+If you also include the Firebase Remote Config SDK in your app, make sure to
+account for the developer-defined Remote Config data collected automatically
+by the Crashlytics SDK. The following table lists the data that the
+Crashlytics SDK collects:
+
+Data
+If your app includes the Firebase Remote Config SDK, then the
+Crashlytics SDK...
+
+Developer-defined Remote Config rollout metadata
+Collects rollout metadata, which includes Remote Config
+template versions, rollout variant IDs, parameter keys, and parameter
+values affected by active rollouts.
+
+## Additional information
+
+## Purpose for data collection
+
+Firebase Crashlytics generally uses the collected data
+listed in the sub-sections above
+to enable crash reporting and crash management services.
+Also, review the sub-sections above for information about how specific data
+may be used.
+In your data disclosure, make sure to also account for how you specifically use
+the collected data, in addition to how you use any developer-defined end-user
+data collected by the SDK.
+
+## Authentication
+
+com.google.firebase:firebase-auth
+
+com.google.firebase:firebase-auth-ktx
+
+## Data collected automatically
+
+The Firebase Authentication SDK collects the following data automatically.
+
+Data
+By default, the Firebase Authentication SDK...
+
+Firebase user agent
+For information, refer to the
+Firebase user agent section on this
+page.
+
+IP address
+Collects IP addresses to provide added security and prevent abuse
+during sign-up and authentication.
+
+User agent strings:
+
+- whether the app uses FirebaseUI
+
+- version of Authentication SDK used by the app
+
+- platform of the device
+
+Collects user agent strings to provide, maintain, and improve
+Firebase services.
+
+Note that this user agent is not referring to the
+Firebase user agent.
+
+Firebase Android App ID
+Collects the Firebase Android App ID of the app (this is not the
+app's package name).
+
+This value is included in the header of each request.
+
+## Data collected depending on your usage
+
+Depending on how you configure or invoke the Firebase Authentication SDK and the
+product's features, your app may collect end-user data that needs to be included
+in your data disclosure. The following table lists examples of end-user data
+that can be collected depending on your usage, but make sure to account for any
+data collected by your specific usage.
+
+Data
+Depending on your app's configuration and invocation, the
+Firebase Authentication SDK...
+
+Display name
+Collects a user's display name if the developer provides it.
+
+Email address
+Collects a user's email address (as provided by the developer) if
+the app uses any of the following:
+
+- email password authentication
+
+- email link authentication
+
+- a federated identity as an authentication method and the federated
+provider's response contains the email address
+
+Phone number
+Collects a user's phone number (as provided by the developer) if
+the app uses any of the following:
+
+- phone authentication
+
+- phone number as an authentication method
+
+- SMS-as-second-factor authentication flows
+
+Integrity token from Play Integrity
+
+Collects this integrity token if your app uses Phone Authentication. See additional
+data safety information for Play Integrity.
+
+Token from
+reCAPTCHA Enterprise
+
+Collects this token if your app uses
+reCAPTCHA Enterprise to protect Authentication flows.
+See additional
+data safety information for reCAPTCHA Enterprise.
+
+Contact information
+Collects a user's contact information related to third-party
+authentication providers if the app uses a third-party authentication
+provider with Firebase Authentication.
+
+For example, a user's identifier may be linked to their Facebook
+profile if the app uses Facebook authentication, depending on the
+scopes granted.
+
+Refer to the authentication provider's documentation for more
+information.
+
+Game Center ID
+Collects a user's Game Center ID if the app is linked to the
+Game Center.
+
+User ID
+Generates and stores a unique Firebase Authentication identifier.
+
+## Additional information
+
+## Purpose for data collection
+
+Firebase Authentication generally uses the collected data listed
+in the sub-sections above
+to enable authentication and account management.
+User agent strings are used to provide, maintain, and improve Firebase services.
+Also, review the sub-sections above for information about how specific data
+may be used.
+In your data disclosure, make sure to also account for how you specifically use
+the collected data.

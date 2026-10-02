@@ -1,0 +1,234 @@
+Source: https://developer.android.com/reference/android/Manifest.permission
+Text taken from the page; markup is flattened. Only the entries of the permissions that src/data.js maps to a Data safety data type are kept. Each is a "### permission" block with its description, and the constant value that is written in a manifest.
+
+### permission ACCESS_FINE_LOCATION
+Added in API level 1
+public static final String ACCESS_FINE_LOCATION
+Allows an app to access precise location.
+Alternatively, you might want ACCESS_COARSE_LOCATION.
+Protection level: dangerous
+Constant Value:
+"android.permission.ACCESS_FINE_LOCATION"
+
+### permission ACCESS_COARSE_LOCATION
+Added in API level 1
+public static final String ACCESS_COARSE_LOCATION
+Allows an app to access approximate location.
+Alternatively, you might want ACCESS_FINE_LOCATION.
+Protection level: dangerous
+Constant Value:
+"android.permission.ACCESS_COARSE_LOCATION"
+
+### permission READ_CONTACTS
+Added in API level 1
+public static final String READ_CONTACTS
+Allows an application to read the user's contacts data.
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_CONTACTS"
+
+### permission READ_CALL_LOG
+Added in API level 16
+public static final String READ_CALL_LOG
+Allows an application to read the user's call log.
+Note: If your app uses the
+READ_CONTACTS permission and both your minSdkVersion and targetSdkVersion values are set to 15 or lower, the system implicitly
+grants your app this permission. If you don't need this permission, be sure your targetSdkVersion is 16 or higher.
+Protection level: dangerous
+This is a hard restricted permission which cannot be held by an app until
+the installer on record allowlists the permission. For more details see
+Constant Value:
+"android.permission.READ_CALL_LOG"
+
+### permission READ_CALENDAR
+Added in API level 1
+public static final String READ_CALENDAR
+Allows an application to read the user's calendar data.
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_CALENDAR"
+
+### permission READ_SMS
+Added in API level 1
+public static final String READ_SMS
+Allows an application to read SMS messages.
+Protection level: dangerous
+This is a hard restricted permission which cannot be held by an app until
+the installer on record allowlists the permission. For more details see
+Constant Value:
+"android.permission.READ_SMS"
+
+### permission RECEIVE_SMS
+Added in API level 1
+public static final String RECEIVE_SMS
+Allows an application to receive SMS messages.
+Protection level: dangerous
+This is a hard restricted permission which cannot be held by an app until
+the installer on record allowlists the permission. For more details see
+Constant Value:
+"android.permission.RECEIVE_SMS"
+
+### permission READ_PHONE_NUMBERS
+Added in API level 26
+public static final String READ_PHONE_NUMBERS
+Allows read access to the device's phone number(s),
+which is exposed to instant applications.
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_PHONE_NUMBERS"
+
+### permission CAMERA
+Added in API level 1
+public static final String CAMERA
+Required to be able to access the camera device.
+This will automatically enforce the
+uses-feature manifest element for all camera features.
+If you do not require all camera features or can properly operate if a camera
+is not available, then you must modify your manifest as appropriate in order to
+install on devices that don't support all camera features.
+Protection level: dangerous
+Constant Value:
+"android.permission.CAMERA"
+
+### permission RECORD_AUDIO
+Added in API level 1
+public static final String RECORD_AUDIO
+Allows an application to record audio.
+Protection level: dangerous
+Constant Value:
+"android.permission.RECORD_AUDIO"
+
+### permission BODY_SENSORS
+Added in API level 20
+public static final String BODY_SENSORS
+Allows an application to access data from sensors that the user uses to
+measure what is happening inside their body, such as heart rate.
+Protection level: dangerous
+Constant Value:
+"android.permission.BODY_SENSORS"
+
+### permission BODY_SENSORS_BACKGROUND
+Added in API level 33
+public static final String BODY_SENSORS_BACKGROUND
+Allows an application to access data from sensors that the user uses to measure what is
+happening inside their body, such as heart rate. If you're requesting this permission, you
+must also request BODY_SENSORS. Requesting this permission by itself doesn't give
+you Body sensors access.
+Protection level: dangerous
+This is a hard restricted permission which cannot be held by an app until
+the installer on record allowlists the permission. For more details see
+Constant Value:
+"android.permission.BODY_SENSORS_BACKGROUND"
+
+### permission ACTIVITY_RECOGNITION
+Added in API level 29
+public static final String ACTIVITY_RECOGNITION
+Allows an application to recognize physical activity.
+Protection level: dangerous
+Constant Value:
+"android.permission.ACTIVITY_RECOGNITION"
+
+### permission GET_ACCOUNTS
+Added in API level 1
+public static final String GET_ACCOUNTS
+Allows access to the list of accounts in the Accounts Service.
+Note: Beginning with Android 6.0 (API level
+23), if an app shares the signature of the authenticator that manages an
+account, it does not need "GET_ACCOUNTS" permission to read
+information about that account. On Android 5.1 and lower, all apps need
+"GET_ACCOUNTS" permission to read information about any
+account.
+Protection level: dangerous
+Constant Value:
+"android.permission.GET_ACCOUNTS"
+
+### permission READ_MEDIA_IMAGES
+Added in API level 33
+public static final String READ_MEDIA_IMAGES
+Allows an application to read image files from external storage.
+This permission is enforced starting in API level
+Build.VERSION_CODES.TIRAMISU. An app which targets
+Build.VERSION_CODES.TIRAMISU or higher and needs to read image files from
+external storage must hold this permission; READ_EXTERNAL_STORAGE is not required.
+For apps with a targetSdkVersion of Build.VERSION_CODES.S_V2 or lower, the
+READ_EXTERNAL_STORAGE permission is required, instead, to read image files.
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_MEDIA_IMAGES"
+
+### permission READ_MEDIA_VIDEO
+Added in API level 33
+public static final String READ_MEDIA_VIDEO
+Allows an application to read video files from external storage.
+This permission is enforced starting in API level
+Build.VERSION_CODES.TIRAMISU. An app which targets
+Build.VERSION_CODES.TIRAMISU or higher and needs to read video files from
+external storage must hold this permission; READ_EXTERNAL_STORAGE is not required.
+For apps with a targetSdkVersion of Build.VERSION_CODES.S_V2 or lower, the
+READ_EXTERNAL_STORAGE permission is required, instead, to read video files.
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_MEDIA_VIDEO"
+
+### permission READ_MEDIA_AUDIO
+Added in API level 33
+public static final String READ_MEDIA_AUDIO
+Allows an application to read audio files from external storage.
+This permission is enforced starting in API level
+Build.VERSION_CODES.TIRAMISU. An app which targets
+Build.VERSION_CODES.TIRAMISU or higher and needs to read audio files from
+external storage must hold this permission; READ_EXTERNAL_STORAGE is not required.
+For apps with a targetSdkVersion of Build.VERSION_CODES.S_V2 or lower, the
+READ_EXTERNAL_STORAGE permission is required, instead, to read audio files.
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_MEDIA_AUDIO"
+
+### permission READ_EXTERNAL_STORAGE
+Added in API level 16
+public static final String READ_EXTERNAL_STORAGE
+Allows an application to read from external storage.
+Note: Starting in API level 33, this permission has no
+effect. If your app accesses other apps' media files, request one or more of these permissions
+instead: READ_MEDIA_IMAGES,
+READ_MEDIA_VIDEO,
+READ_MEDIA_AUDIO. Learn more about the
+storage
+permissions that are associated with media files.
+This permission is enforced starting in API level 19. Before API level 19, this
+permission is not enforced and all apps still have access to read from external storage.
+You can test your app with the permission enforced by enabling Protect USB
+storage under Developer options in the Settings app on a device running Android
+4.1 or higher.
+Also starting in API level 19, this permission is not required to
+read or write files in your application-specific directories returned by
+Context.getExternalFilesDir(String) and
+Context.getExternalCacheDir().
+Starting in API level 29, apps don't need to request this permission to access files in
+their app-specific directory on external storage, or their own files in the
+MediaStore. Apps
+shouldn't request this permission unless they need to access other apps' files in the
+MediaStore. Read more about these changes in the
+scoped storage section of the
+developer documentation.
+If both your minSdkVersion and targetSdkVersion values are set to 3 or lower, the system implicitly
+grants your app this permission. If you don't need this permission, be sure your targetSdkVersion is 4 or higher.
+This is a soft restricted permission which cannot be held by an app it its
+full form until the installer on record allowlists the permission.
+Specifically, if the permission is allowlisted the holder app can access
+external storage and the visual and aural media collections while if the
+permission is not allowlisted the holder app can only access to the visual
+and aural medial collections. Also the permission is immutably restricted
+meaning that the allowlist state can be specified only at install time and
+cannot change until the app is installed. For more details see
+Protection level: dangerous
+Constant Value:
+"android.permission.READ_EXTERNAL_STORAGE"
+
+### permission QUERY_ALL_PACKAGES
+Added in API level 30
+public static final String QUERY_ALL_PACKAGES
+Allows query of any normal app on the device, regardless of manifest declarations.
+Protection level: normal
+Constant Value:
+"android.permission.QUERY_ALL_PACKAGES"

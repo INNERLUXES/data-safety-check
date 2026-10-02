@@ -1,0 +1,50 @@
+{
+  "name": "data-safety-check",
+  "version": "1.0.0",
+  "description": "Check the Data safety answers kept in an Android app repository against the app: the permissions in every AndroidManifest.xml and the well-known SDKs in the Gradle files, mapped to the Data safety data types of Google Play. Reports data types the answers leave out, declared data without a purpose, and names Google does not list. Reads files only; never runs Gradle or a build, no dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "data-safety-check": "bin/data-safety-check.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "examples",
+    "research",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/*.test.js\"",
+    "check": "node tools/check.mjs",
+    "example": "node tools/example.mjs"
+  },
+  "keywords": [
+    "android",
+    "google-play",
+    "data-safety",
+    "privacy",
+    "permissions",
+    "androidmanifest",
+    "gradle",
+    "sdk",
+    "compliance",
+    "cli"
+  ],
+  "author": "INNERLUXES <info@innerluxes.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INNERLUXES/data-safety-check.git"
+  },
+  "homepage": "https://innerluxes.dev/application/mobile/development/android"
+}

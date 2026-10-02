@@ -1,0 +1,44 @@
+Source: https://support.google.com/analytics/answer/11582702
+Coordinates: com.google.firebase:firebase-analytics is listed on https://firebase.google.com/docs/android/play-data-disclosure under the section "Google Analytics", which sends the reader to this page for the data it collects.
+Text taken from the page; markup is flattened and table cells are shown one per line. Update stamps and the paragraph about when the Data safety section was announced are left out.
+
+# Google Analytics for Firebase SDK
+## Data collected automatically
+
+The Google Analytics for Firebase SDK collects the following data automatically.
+
+Data
+By default, the Google Analytics for Firebase SDK...
+
+App-instance ID
+
+Automatically assigns an app-instance id to each instance of an app, for purposes of computing user metrics throughout Analytics.
+
+By default, this identifier is not associated with a user identifier, like user screen name or account ID. Collection of this identifier can be disabled with the Consent Mode API. Learn more
+
+Advertising ID
+Collects the Android Advertising ID. Collection of this identifier can be disabled by configuring Analytics data collection. Learn more
+
+Masked IP address
+Derives coarse location data from the masked IP addresses of the device.
+
+In-app purchases and subscriptions
+Collects in-app purchase and subscription events with parameters that include product ID, product name, and price.
+
+App lifecycle events
+Collects screen views and sessions for use in Reporting and Analysis.
+
+All of the user data collected by the SDK is encrypted in transit using the Transport Layer Security (TLS) protocol.
+
+## Data collected depending on your usage
+
+Depending on how you configure or invoke the Google Analytics for Firebase SDK and the product's features, your app may collect end-user data that needs to be included in your data disclosure. The following table lists examples of end-user data that can be collected depending on your usage, but make sure to account for any data collected by your specific usage.
+
+Data
+Depending on your app's configuration and invocation, the Google Analytics for Firebase SDK...
+
+User-ID
+Collects the user ID you set for the individual using your app. After setting a user ID, all future events will be automatically associated with this ID until you set the user ID to null.
+
+Account identifiers
+Conditionally collects signed-in account information if Google Signals is enabled. Learn more
